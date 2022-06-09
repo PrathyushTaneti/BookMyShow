@@ -1,5 +1,7 @@
-using BookMyShowAPI.Services;
-using BookMyShowAPI.Services.ServiceClasses;
+using BookMyShow.Models;
+using BookMyShow.Services;
+using BookMyShow.Services.ServiceClasses;
+using Microsoft.EntityFrameworkCore;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 
@@ -12,6 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<BookMyShowDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection") ?? 
+    throw new InvalidOperationException("Connection string 'BookMyShowContext' not found.")));
+
 var container = new Container();
 container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 builder.Services.AddSimpleInjector(container, options =>
@@ -20,7 +26,7 @@ builder.Services.AddSimpleInjector(container, options =>
 });
 
 container.Register<IMovieDetailService, MovieDetailService>();
-container.Register<ISeatDetailService, MovieShowsListService>();
+container.Register<IMovieShowsListService, MovieShowsListService>();
 container.Register<ISeatDetailService, SeatDetailService>();
 container.Register<ITheatreService, TheatreService>();
 container.Register<ITicketService, TicketService>();
@@ -28,7 +34,7 @@ container.Register<IUserDetailService, UserDetailService>();
 
 var app = builder.Build();
 app.Services.UseSimpleInjector(container);
-container.Verify();
+//container.Verify();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -37,10 +43,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-
-// simple injector ; get connection string from appsettings 

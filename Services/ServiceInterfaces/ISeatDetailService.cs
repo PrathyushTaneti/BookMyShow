@@ -1,6 +1,6 @@
-﻿using BookMyShowAPI.Models;
+﻿using BookMyShow.Models;
 
-namespace BookMyShowAPI.Services
+namespace BookMyShow.Services
 {
     public interface ISeatDetailService
     {
@@ -10,7 +10,7 @@ namespace BookMyShowAPI.Services
 
         int CreateSeat(SeatDetail seatDetail);
 
-        bool UpdateSeatDetail(int Id,SeatDetail seatDetail);
+        bool UpdateSeatDetail(int Id, SeatDetail seatDetail);
 
         bool DeleteSeat(int Id);
     }

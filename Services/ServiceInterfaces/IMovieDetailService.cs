@@ -1,6 +1,6 @@
-﻿using BookMyShowAPI.Models;
+﻿using BookMyShow.Models;
 
-namespace BookMyShowAPI.Services
+namespace BookMyShow.Services
 {
     public interface IMovieDetailService
     {

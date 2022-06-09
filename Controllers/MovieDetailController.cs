@@ -1,9 +1,9 @@
-﻿using BookMyShowAPI.Models;
-using BookMyShowAPI.Services;
+﻿using BookMyShow.Models;
+using BookMyShow.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookMyShowAPI.Controllers
+namespace BookMyShow.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,7 +17,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         [HttpGet]
-        public List<IMovieDetailService> Get()
+        public List<MovieDetail> Get()
         {
             return this.movieDetailService.GetAllMovies();
         }
@@ -34,13 +34,13 @@ namespace BookMyShowAPI.Controllers
             return this.movieDetailService.CreateMovie(movieDetail);
         }
 
-        [HttpPut]
+        [HttpPut("id")]
         public bool Put(int Id, MovieDetail movieDetail)
         {
             return this.movieDetailService.UpdateMovieDetail(Id, movieDetail);
         }
 
-        [HttpDelete]
+        [HttpDelete("id")]
         public bool Delete(int Id)
         {
             return this.movieDetailService.DeleteMovieDetail(Id);

@@ -1,7 +1,7 @@
-﻿using BookMyShowAPI.Models;
+﻿using BookMyShow.Models;
 using PetaPoco;
 
-namespace BookMyShowAPI.Services.ServiceClasses
+namespace BookMyShow.Services.ServiceClasses
 {
     public class SeatDetailService : ISeatDetailService
     {
@@ -9,7 +9,7 @@ namespace BookMyShowAPI.Services.ServiceClasses
 
         public SeatDetailService()
         {
-            this.DbContext = new Database("Server = IRON - MAN\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
+            this.DbContext = new Database("Server = .\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
 
         }
 
@@ -26,13 +26,12 @@ namespace BookMyShowAPI.Services.ServiceClasses
         public int CreateSeat(SeatDetail seatDetail)
         {
             this.DbContext.Insert(seatDetail);
-            SeatDetail seat = this.GetSeatById(seatDetail.Id);
-            return seat.Id;
+            return this.DbContext.SingleOrDefault<SeatDetail>("Select * from SeatDetail Where Id = @Id", seatDetail.Id).Id;
         }
 
         public bool UpdateSeatDetail(int Id, SeatDetail seatDetail)
         {
-            if(this.GetSeatById(Id) != null)
+            if (this.GetSeatById(Id) != null)
             {
                 this.DbContext.Update(seatDetail);
                 return true;
@@ -42,7 +41,7 @@ namespace BookMyShowAPI.Services.ServiceClasses
 
         public bool DeleteSeat(int Id)
         {
-            if(this.GetSeatById(Id) != null)
+            if (this.GetSeatById(Id) != null)
             {
                 this.DbContext.Delete<SeatDetail>(Id);
                 return true;

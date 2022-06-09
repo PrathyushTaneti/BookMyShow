@@ -1,10 +1,9 @@
-﻿using BookMyShowAPI.Models;
+﻿using BookMyShow.Models;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
-namespace BookMyShowAPI.Services.ServiceClasses
+namespace BookMyShow.Services.ServiceClasses
 {
     public class MovieDetailService : IMovieDetailService
     {
@@ -13,7 +12,7 @@ namespace BookMyShowAPI.Services.ServiceClasses
 
         public MovieDetailService() // SimpleInjector
         {
-            this.DbContext= new Database("Server = IRON - MAN\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
+            this.DbContext= new Database("Server = .\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
         }
 
         public List<MovieDetail> GetAllMovies()
@@ -35,6 +34,11 @@ namespace BookMyShowAPI.Services.ServiceClasses
         public bool UpdateMovieDetail(int Id,MovieDetail movieDetail)
         {
            if(this.GetMovieDetailById(Id) != null){
+                /*this.DbContext.Query<MovieDetail>("Update Title=@Title,Description = @Description," +
+                    "Language=@Language, Duration = @Duration, Genre = @Genre, ReleaseDate = @ReleaseDate," +
+                    "Rating = @Rating From MovieDetail where Id = @Id",movieDetail.Title,movieDetail.Description,
+                    movieDetail.Language,movieDetail.Duration, movieDetail.Genre, movieDetail.ReleaseDate , 
+                    movieDetail.Rating, Id );*/
                 this.DbContext.Update(movieDetail);  // check
                 return true;
             }

@@ -1,14 +1,14 @@
-﻿using BookMyShowAPI.Models;
+﻿using BookMyShow.Models;
 using PetaPoco;
 
-namespace BookMyShowAPI.Services.ServiceClasses
+namespace BookMyShow.Services.ServiceClasses
 {
     public class UserDetailService : IUserDetailService
     {
         public readonly IDatabase DbContext;
         public UserDetailService()
         {
-            this.DbContext = new Database("Server = IRON - MAN\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
+            this.DbContext = new Database("Server = .\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
         }
 
         public List<UserDetail> GetAllUserDetails()

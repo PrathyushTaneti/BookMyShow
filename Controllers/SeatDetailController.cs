@@ -1,9 +1,9 @@
-﻿using BookMyShowAPI.Models;
-using BookMyShowAPI.Services;
+﻿using BookMyShow.Models;
+using BookMyShow.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookMyShowAPI.Controllers
+namespace BookMyShow.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -26,7 +26,7 @@ namespace BookMyShowAPI.Controllers
         [HttpGet("id")]
         public SeatDetail Get(int Id)
         {
-            this.seatDetailService.GetSeatById(Id);
+            return this.seatDetailService.GetSeatById(Id);
         }
 
         [HttpPost]
@@ -41,7 +41,7 @@ namespace BookMyShowAPI.Controllers
             return this.seatDetailService.UpdateSeatDetail(Id, seat);
         }
 
-        [HttpDelete]
+        [HttpDelete("id")]
         public bool Delete(int Id)
         {
             return this.seatDetailService.DeleteSeat(Id);

@@ -1,41 +1,41 @@
-﻿using BookMyShowAPI.Models;
-using BookMyShowAPI.Services;
+﻿using BookMyShow.Models;
+using BookMyShow.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookMyShowAPI.Controllers
+namespace BookMyShow.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class MovieShowsListController : ControllerBase
     {
-        private readonly ISeatDetailService movieShowListService;
+        private readonly IMovieShowsListService movieShowListService;
 
-        public MovieShowsListController(ISeatDetailService movieShowListService)
+        public MovieShowsListController(IMovieShowsListService movieShowListService)
         {
             this.movieShowListService = movieShowListService;
         }
 
         [HttpGet]
-        public List<SeatDetail> Get()
+        public List<MovieShowsList> Get()
         {
             return this.movieShowListService.GetAllShows();
         }
 
         [HttpGet("id")]
-        public SeatDetail Get(int Id)
+        public MovieShowsList Get(int Id)
         {
-            this.movieShowListService.GetShowDetailById(Id);
+            return this.movieShowListService.GetShowDetailById(Id);
         }
 
         [HttpPost]
-        public int Post(SeatDetail movieShow)
+        public int Post(MovieShowsList movieShow)
         {
             return this.movieShowListService.CreateShow(movieShow);
         }
 
         [HttpPut]
-        public bool Put(int Id, SeatDetail movieShow)
+        public bool Put(int Id, MovieShowsList movieShow)
         {
             return this.movieShowListService.UpdateShow(Id, movieShow);
         }

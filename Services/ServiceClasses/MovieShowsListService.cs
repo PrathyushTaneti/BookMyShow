@@ -1,34 +1,34 @@
-﻿using BookMyShowAPI.Models;
+﻿using BookMyShow.Models;
 using PetaPoco;
 
-namespace BookMyShowAPI.Services.ServiceClasses
+namespace BookMyShow.Services.ServiceClasses
 {
-    public class MovieShowsListService : ISeatDetailService
+    public class MovieShowsListService : IMovieShowsListService
     {
         public readonly IDatabase DbContext;
 
         public MovieShowsListService()
         {
-            this.DbContext = new Database("Server = IRON - MAN\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
+            this.DbContext = new Database("Server = .\\SQLEXPRESS;" + "Database = BookMyShowDb; Trusted_Connection = True;" + "TrustServerCertificate = True;", "System.Data.SqlClient");
 
         }
 
-        public List<SeatDetail> GetAllShows()
+        public List<MovieShowsList> GetAllShows()
         {
-            return this.DbContext.Query<SeatDetail>("Select * From MovieShowsList").ToList() ?? new List<SeatDetail>();
+            return this.DbContext.Query<MovieShowsList>("Select * From MovieShowsList").ToList() ?? new List<MovieShowsList>();
         }
 
-        public SeatDetail GetShowDetailById(int Id)
+        public MovieShowsList GetShowDetailById(int Id)
         {
-            return this.DbContext.SingleOrDefault<SeatDetail>("Select * from MovieShowsList Where Id = @0", Id);
+            return this.DbContext.SingleOrDefault<MovieShowsList>("Select * from MovieShowsList Where Id = @0", Id);
         }
-        public int CreateShow(SeatDetail movieShow)
+        public int CreateShow(MovieShowsList movieShow)
         {
             this.DbContext.Insert(movieShow);
-            return this.DbContext.SingleOrDefault<SeatDetail>("Select * From MovieShowsList Where Id = @0", movieShow.Id).Id;
+            return this.DbContext.SingleOrDefault<MovieShowsList>("Select * From MovieShowsList Where Id = @0", movieShow.Id).Id;
         }
 
-        public bool UpdateShow(int Id, SeatDetail movieShow)
+        public bool UpdateShow(int Id, MovieShowsList movieShow)
         {
             if (this.GetShowDetailById(Id) != null)
             {
@@ -42,7 +42,7 @@ namespace BookMyShowAPI.Services.ServiceClasses
         {
             if (this.GetShowDetailById(Id) != null)
             {
-                this.DbContext.Delete<SeatDetail>(Id);
+                this.DbContext.Delete<MovieShowsList>(Id);
                 return true;
             }
             return false;

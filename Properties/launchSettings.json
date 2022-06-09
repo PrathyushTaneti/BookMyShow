@@ -4,17 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:26009",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:47286",
+      "sslPort": 44370
     }
   },
   "profiles": {
-    "BookMyShowAPI": {
+    "BookMyShow": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5116",
+      "applicationUrl": "https://localhost:7215;http://localhost:5215",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

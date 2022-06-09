@@ -1,11 +1,12 @@
-﻿namespace BookMyShowAPI.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace BookMyShow.Models
 {
-    public class SeatDetail
+    public partial class SeatDetail
     {
         public int Id { get; set; }
-
-        public string SeatNumber { get; set; }
-
-        public string SeatType { get; set; }
+        public string? SeatNumber { get; set; }
+        public string? SeatType { get; set; }
     }
 }
