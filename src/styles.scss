@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+// colors
+$bg-light-grey : rgb(51, 53, 69);
+$bg-dark-grey : rgb(31, 37, 51);
+$white-color : #FFF;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color : rgb(200,200,200);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.on-hover-white:hover{
+    color : $white-color;
+}
+
+// background color
+.bg-light-grey{
+    background: $bg-light-grey;
+}
+
+.bg-dark-grey{
+    background: $bg-dark-grey;
+}
+
+// font size
+.text-x-small{
+    font-size: 0.8rem;
+}
+
+.text-small{
+    font-size : 0.9rem;
+}
+
+.text-medium{
+    font-size: 1.5rem;
+}
+
+// padding and margins
+.pl-4{
+    padding-left:4.5rem ;
+}
+
+.pr-4{
+    padding-right: 4rem;
+}
+
+// font weight
+.font-weight-bold{
+    font-weight: bold;
+}
+
+.font-weight-500{
+    font-weight: 500;
+}
+
+// width
+.w-80{
+    width: 83%;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+/* Importing Bootstrap SCSS file. */
+
