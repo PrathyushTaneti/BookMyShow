@@ -29,7 +29,7 @@ namespace BookMyShow.Services.ServiceClasses
             return this.GetTicketById(ticket.Id).Id;
         }       
 
-        public bool UpdateTicket(int Id, Ticket ticket)
+        public bool UpdateTicketDetail(int Id, Ticket ticket)
         {
             if (this.GetTicketById(Id) != null)
             {

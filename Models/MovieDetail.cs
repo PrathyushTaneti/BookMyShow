@@ -13,5 +13,6 @@ namespace BookMyShow.Models
         public string? Genre { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public string? Rating { get; set; }
+        public byte[]? Poster { get; set; }
     }
 }

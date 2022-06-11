@@ -15,7 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookMyShowDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection") ?? 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection") ??
     throw new InvalidOperationException("Connection string 'BookMyShowContext' not found.")));
 
 var container = new Container();
@@ -34,7 +34,6 @@ container.Register<IUserDetailService, UserDetailService>();
 
 var app = builder.Build();
 app.Services.UseSimpleInjector(container);
-//container.Verify();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -44,6 +43,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(param =>
+    param.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
+);
 
 app.UseAuthorization();
 

@@ -37,7 +37,7 @@ namespace BookMyShow.Controllers
         [HttpPut("id")]
         public bool Put(int Id, Ticket ticket)
         {
-            return this.ticketService.UpdateTicket(Id, ticket);
+            return this.ticketService.UpdateTicketDetail(Id, ticket);
         }
 
         [HttpDelete("id")]

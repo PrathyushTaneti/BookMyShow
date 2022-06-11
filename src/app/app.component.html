@@ -10,10 +10,25 @@
       placeholder="Search For Movies, Events, Plays, Sports, and Activites"
     />
   </div>
-  <div class="w-25 d-flex text-light align-items-center justify-content-center pr-4">
-    <span class="d-flex align-items-center mx-2"
+  <div
+    class="w-25 d-flex text-light align-items-center justify-content-center pr-4"
+  >
+    <!-- <span class="d-flex align-items-center mx-2"
       >Hyderabad <span class="material-icons">arrow_drop_down</span></span
-    >
+    > -->
+    <div ngbDropdown class="d-inline-block">
+      <button
+        type="button"
+        class="btn bg-light-grey text-light d-flex align-items-center"
+        ngbDropdownToggle
+      > Hyderabad</button>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem>Hyderabad</button>
+        <button ngbDropdownItem [disabled]="true">Banglore</button>
+        <button ngbDropdownItem [disabled]="true">Mumbai</button>
+        <button ngbDropdownItem [disabled]="true">Pune</button>
+      </div>
+    </div>
     <button class="btn btn-danger mx-2 text-x-small py-1 px-2">Sign In</button>
     <span class="material-icons mx-2">reorder</span>
   </div>

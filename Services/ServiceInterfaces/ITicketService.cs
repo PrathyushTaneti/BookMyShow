@@ -10,7 +10,7 @@ namespace BookMyShow.Services
 
         int CreateTicket(Ticket ticket);
 
-        bool UpdateTicket(int Id,Ticket ticket);
+        bool UpdateTicketDetail(int Id,Ticket ticket);
 
         bool DeleteTicket(int Id);
 

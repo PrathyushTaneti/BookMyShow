@@ -27,7 +27,7 @@ namespace BookMyShow.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=BookMyShowDb; User ID=Rahman;Password=123456789;");
+                optionsBuilder.UseSqlServer("Server=IRON-MAN\\SQLEXPRESS;Database=BookMyShowDb;User ID=Rahman;Password=123456789;");
             }
         }
 
@@ -53,6 +53,8 @@ namespace BookMyShow.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Poster).HasColumnType("image");
+
                 entity.Property(e => e.Rating)
                     .HasMaxLength(10)
                     .IsUnicode(false);
@@ -77,8 +79,6 @@ namespace BookMyShow.Models
 
             modelBuilder.Entity<SeatDetail>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("SeatDetail");
 
                 entity.Property(e => e.SeatNumber)

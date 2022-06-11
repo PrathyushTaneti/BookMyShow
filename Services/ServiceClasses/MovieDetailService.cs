@@ -28,9 +28,9 @@ namespace BookMyShow.Services.ServiceClasses
         public int CreateMovie(MovieDetail movieDetail) // check
         {
             this.DbContext.Insert(movieDetail);
-            return this.DbContext.SingleOrDefault<MovieDetail>("Select * From MovieDetail Where Id = @0", movieDetail.Id).Id;
+            return this.DbContext.SingleOrDefault<MovieDetail>("Select * From MovieDetail Where Id = @0", movieDetail.Id).Id; // change
         }
-
+         
         public bool UpdateMovieDetail(int Id,MovieDetail movieDetail)
         {
            if(this.GetMovieDetailById(Id) != null){

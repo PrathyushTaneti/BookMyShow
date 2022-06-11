@@ -1,0 +1,92 @@
+<section
+  class="container-fluid bg-light d-flex flex-column justify-content-center align-items-center mt-4"
+>
+  <!----------- image slider ------------>
+  <div class="w-100 d-flex justify-content-center">
+    <app-image-slider></app-image-slider>
+  </div>
+
+  <!----------- movie cards heading ------------>
+  <div class="w-80 d-flex justify-content-between mt-5">
+    <span class="font-weight-bold text-medium mb-2">Recommended Movies</span>
+    <a href="#" class="text-danger d-flex align-items-center text-small">
+      See All <span class="material-icons text-x-small">chevron_right</span>
+    </a>
+  </div>
+
+  <!----------- movie cards  ------------>
+  <div class="d-flex w-80">
+    <div *ngFor="let movieDetail of allMovieDetails | async; index as i"
+    (click) = "selectedMovieDetail(movieDetail.id)"
+    >
+      <div class="me-3 cursor-pointer">
+        <img
+        [src]="allPosters[i]"
+        width="100%"
+        height="80%"
+        class="rounded"
+      />
+      </div>
+      <div class="font-weight-500 my-2"> {{ movieDetail.title }}  </div>
+      <span> {{ movieDetail.genre}}  </span>
+    </div>
+    <!-- <div class="me-3 cursor-pointer" routerLink="/view">
+      <img
+        src="../../assets/posters/1.avif"
+        width="100%"
+        height="80%"
+        class="rounded"
+      />
+      <div class="font-weight-500 my-2">Ante Sundaraniki</div>
+      <span>Comedy/Romantic</span>
+    </div>
+
+    <div class="me-3 cursor-pointer">
+      <img
+        src="../../assets/posters/2.avif"
+        alt="Jurassic World: Dominion"
+        width="100%"
+        height="80%"
+        class="rounded"
+      />
+      <div class="font-weight-500 my-2">Jurassic World: Dominion</div>
+      <span>Action/Thriller</span>
+    </div>
+
+    <div class="me-3 cursor-pointer">
+      <img
+        src="../../assets/posters/3.avif"
+        alt="MAJOR"
+        width="100%"
+        height="80%"
+        class="rounded"
+      />
+      <div class="font-weight-500 my-2">MAJOR</div>
+      <span>Action</span>
+    </div>
+
+    <div class="me-3 cursor-pointer">
+      <img
+        src="../../assets/posters/4.avif"
+        alt="Vikram: Hitlist"
+        width="100%"
+        height="80%"
+        class="rounded"
+      />
+      <div class="font-weight-500 my-2">Vikram: Hitlist</div>
+      <span>Action</span>
+    </div>
+
+    <div class="cursor-pointer">
+      <img
+        src="../../assets/posters/5.avif"
+        alt="F3: Fun and Frustration"
+        width="100%"
+        height="80%"
+        class="rounded"
+      />
+      <div class="font-weight-500 my-2">F3: Fun and Frustration</div>
+      <span>Comedy/Romantic</span>
+    </div> -->
+  </div>
+</section>
