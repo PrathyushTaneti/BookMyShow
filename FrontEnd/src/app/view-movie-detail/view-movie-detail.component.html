@@ -1,0 +1,70 @@
+<section class="container-fluid m-0 p-0">
+  <div class="w-100 bg-image-1 p-5 d-flex" *ngIf="isMovieDetailPresent">
+    <div class="me-3 cursor-pointer w-10 ml-6" routerLink="/view">
+      <img
+        [src]="movieDetail.poster"
+        alt="Ante Sundaraniki"
+        width="100%"
+        height="90%"
+        class="rounded"
+      />
+      <div
+        class="w-100 font-weight-500 bg-black text-light text-center rounded-bottom text-x-small py-1"
+      >
+        In cinemas
+      </div>
+    </div>
+
+    <div class="ms-3 text-light">
+      <div class="text-light text-large font-weight-500">
+        {{ movieDetail.title }}
+      </div>
+
+      <div class="mt-3 d-flex align-items-center">
+        <span class="material-icons text-danger text-large me-2">
+          favorite
+        </span>
+        <span class="text-light font-weight-500 text-medium">
+          {{ movieDetail.rating + "%" }}
+        </span>
+      </div>
+
+      <div class="mt-3 d-flex align-items-center bg-black p-4 rounded">
+        <div>
+          <span class="text-medium font-weight-500 me-3"
+            >Add your rating & review</span
+          ><br />
+          Your ratings matter
+        </div>
+        <button class="btn btn-light font-weight-500">Rate Now</button>
+      </div>
+
+      <div class="mt-4">
+        <span class="bg-light text-dark m-2 px-3 py-1 font-weight-500 rounded"
+          >2D</span
+        >
+        <span class="bg-light text-dark m-2 px-3 py-1 font-weight-500 rounded">
+          {{ movieDetail.language }}
+        </span>
+      </div>
+      <div class="ms-2 mt-3">
+        <span>{{ movieDetail.duration }}</span>
+        <span class="mx-2">•</span>
+        <span> {{ movieDetail.genre }} </span>
+        <span class="mx-2">•</span>
+        <span> {{ movieDetail.releaseDate }} </span>
+        <span class="mx-2">•</span>
+      </div>
+      <button class="btn btn-danger px-5 mt-3 py-2 font-weight-500 ms-2">
+        Book Tickets
+      </button>
+    </div>
+  </div>
+
+  <div class="w-100 mt-3 pl-9" *ngIf="isMovieDetailPresent">
+    <div class="w-75 text-medium font-weight-bold">About The Movie</div>
+    <div class="w-75">
+      {{ movieDetail.description }}
+    </div>
+  </div>
+</section>

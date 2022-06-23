@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import './colors.scss';
+
+a{
+    text-decoration: none;
+    color : rgb(200,200,200);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.on-hover-white:hover{
+    color : $white-color;
+}
+
+// background color
+.bg-light-grey{
+    background: $bg-light-grey;
+}
+
+.bg-dark-grey{
+    background: $bg-dark-grey;
+}
+
+.bg-black{
+    background: $black-color;
+}
+
+.bg-image-1{
+    background-image: linear-gradient(90deg, rgb(26, 26, 26) 24.97%,rgb(26, 26, 26) 24.97%,rgb(26, 26, 26) 24.97%, rgb(26, 26, 26) 38.3%, rgba(26, 26, 26, 0.04) 97.47%, rgb(26, 26, 26) 100%), url(https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/ante-sundaraniki-et00323425-12-05-2022-06-56-55.jpg);
+    background-repeat: no-repeat;
+    // background-size: 100%;
+    background-position:left;
+}
+
+// font size
+.text-x-small{
+    font-size: 0.8rem;
+}
+
+.text-small{
+    font-size : 0.9rem;
+}
+
+.text-medium{
+    font-size: 1.5rem;
+}
+
+.text-large {
+    font-size: 2.5rem;
+}
+
+// padding and margins
+.pl-4{
+    padding-left:4.5rem ;
+}
+
+.pl-9 {
+    padding-left: 9.5rem;
+}
+
+.pr-4{
+    padding-right: 4rem;
+}
+
+.ml-6{
+    margin-left: 6rem;
+}
+
+// font weight
+.font-weight-bold{
+    font-weight: bold;
+}
+
+.font-weight-500{
+    font-weight: 500;
+}
+
+// width
+.w-80{
+    width: 83%;
+}
+
+.w-10{
+    width: 16%;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+/* Importing Bootstrap SCSS file. */
+
+
+/* Importing Bootstrap SCSS file. */
+
